@@ -45,7 +45,6 @@ public class Main extends Activity {
 
         cargarCategorias();
 
-        //JAVIER GARCIA TARIN
         Button bEnviar = (Button) findViewById(R.id.bEnviar);
         bEnviar.setOnClickListener(new View.OnClickListener() {
             @Override

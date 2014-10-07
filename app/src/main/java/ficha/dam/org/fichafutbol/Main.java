@@ -49,12 +49,11 @@ public class Main extends Activity {
         bEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(compruebaCamposVacios() && validarDNI()) {
+                if(compruebaCampos() && validarDNI()) {
                     enviarDatos();
                 }
             }
         });
-
     }
 
     @Override
@@ -114,36 +113,36 @@ public class Main extends Activity {
     }
 
     /**
-     * Comprueba los campos vacios para mostrar un mensaje con los que falten
+     * Comprueba los campos vacios e incorrectos para mostrar un mensaje con los que falten
      */
-    private boolean compruebaCamposVacios(){
+    private boolean compruebaCampos(){
         String strMensaje = "Los siguientes campos están incorrectos: ";
-        boolean vacio = false;
+        boolean bIncorrecto = false;
         if (_etNombre.getText().toString().equals("") || _etNombre.getText().toString().matches(".*[0-9].*")){
             strMensaje += "\n Nombre";
-            vacio = true;
+            bIncorrecto = true;
         }
         if (_etApellido1.getText().toString().equals("") || _etApellido1.getText().toString().matches(".*[0-9].*")){
             strMensaje += "\n Apellido";
-            vacio = true;
+            bIncorrecto = true;
         }
         if (_etApellido2.getText().toString().equals("") || _etApellido2.getText().toString().matches(".*[0-9].*")){
             strMensaje += "\n Apellido2";
-            vacio = true;
+            bIncorrecto = true;
         }
         if (_etDNI.getText().toString().equals("") ){
             strMensaje += "\n DNI";
-            vacio = true;
+            bIncorrecto = true;
         }
         if (_etEdad.getText().toString().equals("") || !_etEdad.getText().toString().matches(".*[0-9].*")){
             strMensaje += "\n Edad";
-            vacio = true;
+            bIncorrecto = true;
         }
         if (!_rbHombre.isChecked() && !_rbMujer.isChecked()){
             strMensaje += "\n Sexo";
-            vacio = true;
+            bIncorrecto = true;
         }
-        if (vacio){
+        if (bIncorrecto){
             Toast.makeText(this, strMensaje, Toast.LENGTH_LONG).show();
             return false;
         }
@@ -196,5 +195,4 @@ public class Main extends Activity {
         intent.putExtra("categoria", _spiCategoria.getSelectedItem().toString());
         startActivityForResult(intent, 1234);
     }
-
 }

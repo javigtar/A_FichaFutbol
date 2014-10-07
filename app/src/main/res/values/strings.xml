@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Ficha Futbol</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_datos">Verificar Datos</string>
+
+    <string-array name="categorias">
+        <item>Querubín</item>
+        <item>Pre-benjamín</item>
+        <item>Benjamín</item>
+        <item>Alevín</item>
+        <item>Cadete</item>
+        <item>Infantil</item>
+        <item>Juvenil</item>
+        <item>Amater</item>
+    </string-array>
+
+</resources>

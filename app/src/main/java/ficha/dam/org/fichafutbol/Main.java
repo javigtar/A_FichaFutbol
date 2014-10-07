@@ -168,7 +168,7 @@ public class Main extends Activity {
 
     /**
      * Calcula la letra del DNI a partir de su número     *
-     * @return
+     * @return Letra del DNI
      */
     private char calculaLetra()
     {

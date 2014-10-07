@@ -40,6 +40,8 @@ public class Datos extends Activity {
 
         mostrarDatos();
 
+        //JAVIER GARCIA TARIN
+
         _bSi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -77,24 +77,19 @@ public class Datos extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    //Muestra los datos recogidos la la actividad principal
     private void mostrarDatos(){
         Bundle extras = getIntent().getExtras();
-        TextView tvNombre = (TextView) findViewById(R.id.tvNombre);
-        TextView tvApellido1 = (TextView) findViewById(R.id.tvApellido1);
-        TextView tvApellido2 = (TextView) findViewById(R.id.tvApellido2);
-        TextView tvDNI = (TextView) findViewById(R.id.tvDNI);
-        TextView tvEdad = (TextView) findViewById(R.id.tvEdad);
-        TextView tvSexo = (TextView) findViewById(R.id.tvSexo);
-        TextView tvCategoria = (TextView) findViewById(R.id.tvCategoria);
-        tvNombre.setText(extras.getString("nombre"));
-        tvApellido1.setText(extras.getString("apellido1"));
-        tvApellido2.setText(extras.getString("apellido2"));
-        tvDNI.setText(extras.getString("dni"));
-        tvEdad.setText(extras.getString("edad"));
-        tvSexo.setText(extras.getString("sexo"));
-        tvCategoria.setText(extras.getString("categoria"));
+        _tvNombre.setText(extras.getString("nombre"));
+        _tvApellido1.setText(extras.getString("apellido1"));
+        _tvApellido2.setText(extras.getString("apellido2"));
+        _tvDNI.setText(extras.getString("dni"));
+        _tvEdad.setText(extras.getString("edad"));
+        _tvSexo.setText(extras.getString("sexo"));
+        _tvCategoria.setText(extras.getString("categoria"));
     }
 
+    //Devuelve los datos a la actividad principal y finaliza la actividad
     private void devolverDatos(){
         Intent intent = new Intent();
         intent.putExtra("nombre", _tvNombre.getText().toString());

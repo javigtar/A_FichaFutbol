@@ -45,13 +45,12 @@ public class Main extends Activity {
 
         cargarCategorias();
 
+        //JAVIER GARCIA TARIN
         Button bEnviar = (Button) findViewById(R.id.bEnviar);
         bEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(compruebaCamposVacios() && validarDNI()) {
-                    //Añade la letra al DNI segun su número
-                    _etDNI.setText(_etDNI.getText().toString() + calculaLetra());
                     enviarDatos();
                 }
             }
@@ -121,15 +120,15 @@ public class Main extends Activity {
     private boolean compruebaCamposVacios(){
         String strMensaje = "Los siguientes campos están incorrectos: ";
         boolean vacio = false;
-        if (_etNombre.getText().toString().equals("") || _etNombre.getText().toString().matches("[0-9]*")){
+        if (_etNombre.getText().toString().equals("") || _etNombre.getText().toString().matches(".*[0-9].*")){
             strMensaje += "\n Nombre";
             vacio = true;
         }
-        if (_etApellido1.getText().toString().equals("") || _etApellido1.getText().toString().matches("[0-9]*")){
+        if (_etApellido1.getText().toString().equals("") || _etApellido1.getText().toString().matches(".*[0-9].*")){
             strMensaje += "\n Apellido";
             vacio = true;
         }
-        if (_etApellido2.getText().toString().equals("") || _etApellido2.getText().toString().matches("[0-9]*")){
+        if (_etApellido2.getText().toString().equals("") || _etApellido2.getText().toString().matches(".*[0-9].*")){
             strMensaje += "\n Apellido2";
             vacio = true;
         }
@@ -137,7 +136,7 @@ public class Main extends Activity {
             strMensaje += "\n DNI";
             vacio = true;
         }
-        if (_etEdad.getText().toString().equals("") ){
+        if (_etEdad.getText().toString().equals("") || !_etEdad.getText().toString().matches(".*[0-9].*")){
             strMensaje += "\n Edad";
             vacio = true;
         }
@@ -186,7 +185,8 @@ public class Main extends Activity {
         intent.putExtra("nombre", _etNombre.getText().toString());
         intent.putExtra("apellido1", _etApellido1.getText().toString());
         intent.putExtra("apellido2", _etApellido2.getText().toString());
-        intent.putExtra("dni", _etDNI.getText().toString());
+        //Pasa el campo DNI añadiendole la letra
+        intent.putExtra("dni", _etDNI.getText().toString() + calculaLetra());
         intent.putExtra("edad", _etEdad.getText().toString());
         if (_rbHombre.isChecked()){
             intent.putExtra("sexo", "Hombre");

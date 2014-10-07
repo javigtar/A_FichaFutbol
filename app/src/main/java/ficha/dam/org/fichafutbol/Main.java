@@ -98,7 +98,6 @@ public class Main extends Activity {
         cargarCategorias();
     }
 
-
     /**
      * Carga las categorias correspondientes en el spinner
      */
